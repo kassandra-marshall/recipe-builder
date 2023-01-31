@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { add_name, add_ingredient, add_instruction } from "../state/actions";
 
 function RecipeBuilder(props) {
-    const { setRecipes, recipes } = props
+    const { setRecipes, recipes, add_name, add_ingredient, add_instruction  } = props
     const [form, setForm] = useState({
       recipeName: '',
       ingredients: '',
       instructions: ''
-    //   ingredients: [],
-    //   instructions: []
+    //   "ingredients": [],
+    //   "instructions": []
     });
+    // const [ingredients, setIngredients] = useState([])
 
-    useEffect(() => {
-        window.localStorage.setItem('form', form);
-    }, [form]);
+    // useEffect(() => {
+    //     const jsonIngredients = JSON.stringify(props.ingredients)
+    //     window.localStorage.setItem('ingredients', jsonIngredients);
+    // }, [props.ingredients.length]);
 
-    useEffect(() => {
-        setForm(window.localStorage.getItem('form'));
-    }, []);
+    // useEffect(() => {
+    //     const getIngredients = JSON.parse(window.localStorage.getItem('ingredients'))
+    //     setForm({...form, ingredients:getIngredients});
+    // }, []);
   
     const handleChange = (e) => {
       setForm({...form,
@@ -26,13 +31,18 @@ function RecipeBuilder(props) {
 
     // figure out how to add individual ingredients and instructions to array inside object
     // const addIngredient = (e) => {
-    //     e.preventDefault()
-    //     setForm({...form, [form.ingredients]: e.target.value})
+    // //     e.preventDefault()
+    // //    setIngredients([...ingredients, form.ingredients])
+    // //     add_ingredient(ingredients)
+    //     // const newIngredients = [...form.ingredients]
+    //     // newIngredients.push(e.target.value)
+    //     // setForm({...form, ingredients: newIngredients})
     // }
 
     // const addInstruction = (e) => {
     //     e.preventDefault()
     //     setForm({...form, [form.instructions]: e.target.value})
+        
     // }
   
     const handleSubmit = (e) => {
@@ -71,5 +81,6 @@ function RecipeBuilder(props) {
       </div>
     )
   }
+
 
   export default RecipeBuilder;

@@ -1,14 +1,20 @@
 import { useState } from 'react';
+
 import { Route, Switch, Link } from 'react-router-dom';
+
 import './App.css';
 
 import RecipeBuilder from './components/RecipeBuilder';
 import RecipeDisplay from './components/RecipeDisplay';
 
+
+
+
 function App() {
   const [recipes, setRecipes] = useState([]);
   return (
-    <div className="App">
+    
+      <div className="App">
       <header>
         <h1>Create Your Recipe Now!</h1>
         <div className='links'>
@@ -25,6 +31,7 @@ function App() {
         </Route>
       </Switch>
     </div>
+    
   );
 }
 

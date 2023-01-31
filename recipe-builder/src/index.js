@@ -4,12 +4,20 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { legacy_createStore, applyMiddleware, compose } from 'redux';
+import reducers from './state/reducers';
+import { Provider } from 'react-redux';
+
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = legacy_createStore(reducers, composeEnhancers(applyMiddleware()))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <App />
-  </Router>
+  // <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  // </Provider>
     
 );
 
